@@ -3,6 +3,9 @@
 This project is an example of the Google App Engine Java hello world
 ported to Clojure.
 
+Please note, this project exists to demonstrate *how* to do this. It
+is not intended to be a recommendation on the best way to do it.
+
 ## Usage
 
 1. Install the Google Application Engine Java SDK and clone this repository.
