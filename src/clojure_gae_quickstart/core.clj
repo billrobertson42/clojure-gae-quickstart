@@ -10,7 +10,9 @@
     (let [response (handler request)]
       (if (and (or (nil? response) (= 404 (:status response)))
                (.endsWith (:uri request) "/"))
-        (handler (assoc request :uri (str (:uri request) welcome)))
+        (handler (assoc request 
+                        :uri (str (:uri request) welcome)
+                        :path-info (str (:uri request) welcome)))
         response))))
 
 (defn json-response [body]
@@ -26,6 +28,6 @@
   (not-found ""))
 
 (def app
-  (-> app-routes
+  (-> app-routes      
       (wrap-resource "public")
       (wrap-welcome "index.html")))
